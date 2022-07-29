@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>아코디언 메뉴</title>
+<style>
+* {
+   margin: 0;
+   padding: 0;
+}
+li {
+   list-style: none;
+}
+a {
+   color: black;
+   text-decoration: none;
+}
+#menu {
+   position: absolute;
+   width: 50%;
+   height: 100%;
+   background: lightgray;
+}
+#menu a {
+   display: block;
+   padding: 20px;
+   border: 1px solid black;
+}
+#menu a.m, ul a {
+   background: lightpink;
+}
+#menu a.m.on {
+   color: red;
+}
+#menu li ul {
+   display: none;
+}
+#menu li ul.on {
+   display: block;
+}
+</style>
+<script src="js/jQuery-3.6.0.min.js">
+		// jQuery 임포트 하기
+	</script>
+</head>
+<body>
+    <script>
+        $(document).ready(function() {            
+            $("#menu a.m").click(function() {               
+               $(this).next().addBack().toggleClass("on").end().find(".m, ul").removeClass("on").end().parent().siblings().find(".m, ul").removeClass("on");              
+                return false;
+            });
+        });
+        /*
+        $(this).next().addBack().toggleClass("on")
+ 자신요소와 자신의 서브메뉴들에게 on class속성 추가
+ this          next()
+
+.find(".m, ul").removeClass("on")
+ 자신의 하위 서브 메뉴들 초기화(on class속성 제거)
+
+.parent().siblings().find(".m, ul").removeClass("on");
+ 다른 메뉴들도 초기화
+        */
+    </script>
+   <ul id="menu">
+      <li><a href="#" class="m">메뉴1</a>
+         <ul>
+            <li><a href="#" class="m">메뉴1-1</a>
+               <ul>
+                  <li><a href="#">메뉴1-1-1</a></li>
+                  <li><a href="#">메뉴1-1-2</a></li>
+               </ul></li>
+            <li><a href="#" class="m">메뉴1-2</a>
+               <ul>
+                  <li><a href="#">메뉴1-2-1</a></li>
+                  <li><a href="#">메뉴1-2-2</a></li>
+               </ul></li>
+            <li><a href="#" class="m">메뉴1-3</a>
+               <ul>
+                  <li><a href="#">메뉴1-3-1</a></li>
+                  <li><a href="#">메뉴1-3-2</a></li>
+               </ul></li>
+         </ul></li>
+      <li><a href="#" class="m">메뉴2</a>
+         <ul>
+            <li><a href="#">메뉴2-1</a></li>
+            <li><a href="#">메뉴2-2</a></li>
+            <li><a href="#">메뉴2-3</a></li>
+         </ul></li>
+      <li><a href="#" class="m">메뉴3</a>
+         <ul>
+            <li><a href="#">메뉴3-1</a></li>
+            <li><a href="#">메뉴3-2</a></li>
+            <li><a href="#">메뉴3-3</a></li>
+         </ul></li>
+   </ul>
+
+</body>
+</html>

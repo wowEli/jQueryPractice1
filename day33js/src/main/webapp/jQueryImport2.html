@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	header,div,nav,ul,li,footer{ /* *전체선택자는 웹페이지를 느려지게하는 주범이라 실무에서 사용하지 않는다 */
+		margin: 5px;
+	}
+</style>
+</head>
+<body>
+
+	<!-- <script src="<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="crossorigin="anonymous">
+	// jQuery CDN 검색 minified클릭 주소 복사 html에 붙여넣기 (인터넷 연결이 필수이기 때문에 배포용으로는 적절치 않다)
+	</script> -->
+	<script src="js/jQuery-3.6.0.min.js"> // jQuery 임포트 하기
+	</script>
+	
+	<script type="text/javascript"> // 문서가 모두 준비되면 실행이 되어 어느 위치에 있던 상관없음
+		$(document).ready(function() { // $(객체).ready(기능); 객체가 준비되면 == window.load() 와 동일
+			console.log('jQuery 라이브러리 연결 완료!22')
+			$(".logo").css("border","5px solid lightgreen");
+			$("#gnb").css("border","1px solid red");
+			$("footer,.left,.right").css("border","2px solid gray");
+			// js선택자를 사용하지 않고도 간편하게 찾아서 스타일 적용이 가능
+		});
+	</script>
+	
+	<header id="header">
+	
+		<div class="logo">로고</div>
+		<div class="search">검색하기</div>
+		
+		<nav id="gnb">
+			<ul>
+				<li>메뉴 1
+					<ul>
+						<li>메뉴1-1</li>
+						<li>메뉴1-2</li>
+					</ul>
+				</li>
+				<li>메뉴 2
+					<ul>
+						<li>메뉴2-1</li>
+						<li>메뉴2-2</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+		
+	</header>
+	
+	<div id="content">
+		<div class="left">왼쪽</div>
+		<div class="right">오른쪽</div>
+	</div>
+	
+	<footer id="footer">
+		회사소개 </br>
+		개인정보처리방침
+	</footer>
+	
+</body>
+</html>

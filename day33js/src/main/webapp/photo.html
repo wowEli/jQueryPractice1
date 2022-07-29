@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jQuery-3.6.0.min.js">
+		// jQuery 임포트 하기
+</script>
+<style type="text/css">
+	div{
+		margin: 0px;
+		padding: 0px;
+	}
+	#content{
+		width: 200px;
+		margin: 20px;
+	}
+	#content .page{
+		text-align: right;
+		margin: 5px;
+	}
+	#content .page button{
+		background: #2AC1BC;
+		color: white;
+		width: 60px;
+		height: 30px;
+		border: none;
+	}
+	#content .photo{
+		width: 500px;
+		height: 500px;
+		border: 3px solid #2AC1BC;
+		overflow: hidden;
+	}
+	.button{
+		cursor: pointer;
+	}
+</style>
+	
+	
+</head>
+<body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var total=$(".photo > div").length; // 클래스 photo안에 div 개수
+		var curr=1; // 페이지 개수
+		$(".pageInfo > span:first").text(curr); // 첫번째 span은 현재 페이지 수를 대입
+		$(".pageInfo > span:last").text(total); // 마지막 span은 total개수
+		$(".nextBtn").click(function(){ // 다음 버튼 누를 경우
+			curr++;
+			if(curr>total){
+				curr=1;
+			}
+			$(".pageInfo > span:first").text(curr);
+			$(".photo div:first").insertAfter(".photo div:last");
+		});
+		
+		$(".prevBtn").click(function(){
+			curr--;
+			if(curr<1){
+				curr=total;
+			}
+			$(".pageInfo > span:first").text(curr);
+			$(".photo div:last").insertBefore(".photo div:first");
+		});
+	});
+</script>
+
+	<div id="content">
+		<div class="page">
+		
+			<span class="pageInfo">
+				<span></span> / <span></span>
+			</span>
+			
+			<button type="button" class="prevBtn">&lt; 이전</button>
+			<button type="button" class="nextBtn">다음 &gt;</button>
+			
+		</div>
+		
+		<div class="photo">
+		
+			<div><img alt="1번째 사진" src="images/개발의민족(우).png"></div>
+			<div><img alt="2번째 사진" src="images/개발의민족(좌).png"></div>
+			
+		</div>
+	</div>
+
+</body>
+</html>

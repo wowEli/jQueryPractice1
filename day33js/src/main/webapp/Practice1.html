@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+    .menu a {
+	cursor: pointer;
+}
+
+    .menu{
+	display: none;
+}
+</style>
+	<script src="js/jQuery-3.6.0.min.js">
+		// jQuery 임포트 하기
+	</script>
+	<script type="text/javascript">
+		// jQuery 라이브러리를 이용한 코드를 작성
+		$(document).ready(function() { // memu 클래스 바로 하위에 있는 a 태그를 클릭했을때       
+			$(".menu>a").click(function() { // 현재 클릭한 태그가 a 이기 때문에            
+				$(this).next("ul").toggleClass("hide");
+			});
+		});
+	</script>
+</head>
+<body>
+
+	<nav>
+		<ul>
+			<li class="menu"><a href="#">최상위메뉴1</a>
+				<ul class="hide">
+					<li><a href="#">메뉴1-1</a></li>
+					<li><a href="#">메뉴1-2</a></li>
+					<li><a href="#">메뉴1-3</a></li> 
+				</ul>
+			</li>
+			<li class="menu"><a href="#">최상위메뉴2</a>
+				<ul class="hide">
+					<li><a href="#">메뉴2-1</a></li>
+					<li><a href="#">메뉴2-2</a></li>
+				</ul>
+			</li>
+			<li class="menu"><a href="#">최상위메뉴3</a>
+			</li>
+		</ul>
+	</nav>
+</body>
+</html>
